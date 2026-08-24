@@ -1,0 +1,2 @@
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+Icône de Calendrier by paomedia (Arnaud) on <a href="https://icon-icons.com/fr/authors/143-paomedia-arnaud">Icon-Icons.com</a>

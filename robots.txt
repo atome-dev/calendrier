@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calendrier.atome-dev.fr/sitemap.xml

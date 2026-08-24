@@ -1,0 +1,434 @@
+/* --- Reset & Typographie Globale --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #d9e2ec;
+    color: #1e293b;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Conteneur Principal Mural --- */
+.calendar-wrapper {
+    background-color: #f1f5f9;
+    width: 100%;
+    max-width: 1380px;
+    border: 2px solid #94a3b8;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- Header & Navigation --- */
+.calendar-header {
+    background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 2px solid #94a3b8;
+    padding: 8px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.semester-subtitle {
+    font-weight: bold;
+    color: #475569;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.calendar-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: center;
+}
+
+.nav-controls {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.year-label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #334155;
+    min-width: 50px;
+    text-align: center;
+}
+
+.nav-arrow {
+    background: linear-gradient(to bottom, #ffffff, #cbd5e1);
+    border: 1px solid #64748b;
+    border-radius: 4px;
+    color: #2563eb;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.15s ease-in-out;
+}
+
+.nav-arrow:hover {
+    background: linear-gradient(to bottom, #eff6ff, #93c5fd);
+    color: #1d4ed8;
+}
+
+/* --- Barre de Filtres des Zones --- */
+.filters-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 8px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.88rem;
+}
+
+.filters-label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.filter-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.filter-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-check {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #64748b;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.filter-item input:checked + .custom-check::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 3px;
+    height: 7px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Couleurs des Zones */
+.check-a { background-color: #e53935; border-color: #b71c1c; }
+.check-b { background-color: #fbc02d; border-color: #f57f17; }
+.check-c { background-color: #43a047; border-color: #1b5e20; }
+.check-corse { background-color: #8e24aa; border-color: #4a148c; }
+.check-guadeloupe { background-color: #465f9d; border-color: #3b4a73; }
+.check-martinique { background-color: #ffca00; border-color: #c29b02; }
+.check-guyane { background-color: #869ece; border-color: #6c81ab; }
+.check-reunion { background-color: #000091; border-color: #020269; }
+.check-mayotte { background-color: #e4794a; border-color: #965133; }
+
+.filter-item input:not(:checked) + .custom-check {
+    background-color: #f1f5f9;
+}
+
+/* Tooltips au survol */
+.filter-item[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0f172a;
+    color: #ffffff;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    white-space: normal;
+    width: max-content;
+    max-width: 280px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    margin-top: 6px;
+    line-height: 1.3;
+}
+
+/* --- Grille du Calendrier Mural (6 mois) --- */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #64748b;
+    gap: 1px;
+    flex-grow: 1;
+}
+
+.month-column {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.month-header {
+    background: #f1f5f9;
+    border-bottom: 2px solid #64748b;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 6px 2px;
+    letter-spacing: 1px;
+    color: #0f172a;
+    text-transform: uppercase;
+}
+
+.days-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Ligne de jour */
+.day-row {
+    display: flex;
+    align-items: center;
+    min-height: 22px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.76rem;
+    position: relative;
+    padding-right: 2px;
+    background-color: #ffffff;
+}
+
+/* Sous-colonnes de vacances (bandes colorées continues et alignées) */
+.vacation-slots {
+    display: flex;
+    height: 100%;
+    align-self: stretch;
+    flex-shrink: 0;
+}
+
+.vacation-slot {
+    width: 4px;
+    height: 100%;
+    background-color: transparent;
+}
+
+/* Couleurs des bandes de vacances */
+.vacation-slot.vac-A { background-color: #e53935; }
+.vacation-slot.vac-B { background-color: #fbc02d; }
+.vacation-slot.vac-C { background-color: #43a047; }
+.vacation-slot.vac-Corse { background-color: #8e24aa; }
+.vacation-slot.vac-Guadeloupe { background-color: #465f9d; }
+.vacation-slot.vac-Martinique { background-color: #ffca00; }
+.vacation-slot.vac-Guyane { background-color: #869ece; }
+.vacation-slot.vac-Reunion { background-color: #000091; }
+.vacation-slot.vac-Mayotte { background-color: #e4794a; }
+
+/* Contenu textuel de la ligne du jour */
+.day-num {
+    width: 18px;
+    text-align: right;
+    font-weight: 600;
+    padding-right: 4px;
+    padding-left: 2px;
+    flex-shrink: 0;
+}
+
+.day-letter {
+    width: 14px;
+    font-weight: 700;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.day-saint {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 2px;
+    font-size: 0.74rem;
+}
+
+.week-num {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #0f172a;
+    width: 20px;
+    text-align: right;
+    padding-right: 2px;
+    flex-shrink: 0;
+}
+
+/* Couleurs spécifiques aux types de jours (conforme à la capture d'écran) */
+/* Samedi */
+.day-row.saturday {
+    background-color: #edf2f7;
+}
+
+/* Dimanche */
+.day-row.sunday {
+    background-color: #edf2f7;
+}
+.day-row.sunday .week-num {
+    color: #ffffff;
+}
+
+/* Jours fériés */
+.day-row.holiday {
+    background-color: #ffb3ba;
+    color: #b71c1c;
+    font-weight: 700;
+}
+.day-row.holiday .day-saint {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Jour actuel */
+.day-row.today {
+    background-color: #3f6de0 !important;
+    color: #ffffff !important;
+    font-weight: 800;
+}
+.day-row.today .week-num {
+    color: #ffffff;
+}
+
+/* Cellule vide (pour les mois de moins de 31 jours) */
+.day-row.empty {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* --- Pied de page / Information légale Cookies --- */
+.cookie-notice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;                     /* Espace entre le texte et le bouton */
+    padding: 10px 16px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.82rem;
+    color: #475569;
+}
+
+.cookie-notice p {
+    margin: 0;                     /* Supprime les marges par défaut du paragraphe */
+    flex: 1;                       /* Permet au texte d'occuper l'espace disponible */
+    line-height: 1.4;
+}
+
+/* Bouton aligné à droite, compact et non déformable */
+.cookie-notice .btn-info {
+    flex-shrink: 0;                /* Empêche le bouton de s'écraser */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    background: #ffffff;
+    border: 1px solid #94a3b8;
+    color: #334155;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;           /* Garde le libellé/icône sur une ligne */
+}
+
+.cookie-notice .btn-info:hover {
+    background: #f1f5f9;
+    border-color: #64748b;
+    color: #0f172a;
+}
+
+/* Adaptation pour les écrans très étroits (smartphones) */
+@media (max-width: 600px) {
+    .cookie-notice {
+        flex-direction: column;    /* Repasse l'un sous l'autre si l'écran est trop étroit */
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .cookie-notice .btn-info {
+        align-self: flex-end;      /* Maintient le bouton à droite en mode mobile */
+    }
+}
+
+/* --- Responsive : Mode mobile / écran étroit (< 900px) --- */
+@media (max-width: 900px) {
+    body {
+        padding: 4px;
+    }
+
+    .calendar-grid {
+        grid-template-columns: 1fr; /* Affichage sur une seule colonne */
+    }
+
+    .calendar-header {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .semester-subtitle {
+        text-align: center;
+    }
+
+    .nav-controls {
+        justify-self: center;
+    }
+
+    .filters-bar {
+        justify-content: center;
+    }
+
+    .day-row {
+        min-height: 28px;
+        font-size: 0.85rem;
+    }
+
+    .day-num {
+        width: 24px;
+    }
+
+    .day-letter {
+        width: 18px;
+    }
+
+    .day-saint {
+        font-size: 0.82rem;
+    }
+
+    /* Amélioration de l'ergonomie mobile des tooltips */
+    .filter-item[data-tooltip]:hover::before {
+        display: none;
+    }
+
+}

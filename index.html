@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendrier</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendrier perpétuel gratuit et imprimable. Visualisez les jours fériés et vacances scolaires des Zones A, B et C (données officielles).">
+  <meta name="keywords" content="calendrier, calendrier perpétuel, vacances scolaires, calendrier semestriel, calendrier officiel">
+  <meta name="author" content="Nicolas Chauvet, Atome Dev">
+
+  <link rel="canonical" href="https://calendrier.atome-dev.fr/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calendrier.atome-dev.fr/">
+  <meta property="og:title" content="Calendrier – Vacances & Jours Fériés">
+  <meta property="og:description" content="Outil en ligne gratuit pour consulter votre calendrier semestriel avec zones scolaires officielles.">
+  <meta property="og:image" content="https://calendrier.atome-dev.fr/img/preview.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calendrier Vacances Scolaires">
+  <meta name="twitter:description" content="Calendrier semestriel interactif avec les vacances scolaires.">
+  <meta name="twitter:image" content="https://calendrier.atome-dev.fr/img/preview.png">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/popup.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calendrier Vacances Scolaires",
+      "url": "https://calendrier.atome-dev.fr/",
+      "description": "Calendrier semestriel intégrant les zones de vacances scolaires françaises et les jours fériés.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Nicolas Chauvet, Atome Dev"
+      }
+    }
+  </script>
+</head>
+<body>
+
+<div class="calendar-wrapper">
+  <!-- En-tête avec titre et navigation -->
+  <header class="calendar-header">
+    <div class="header-left">
+      <!-- Zone réservée / logo ou titre secondaire -->
+      <span id="semesterSubtitle" class="semester-subtitle">Semestre 2</span>
+    </div>
+
+    <h1 id="calendarTitle" class="calendar-title">Calendrier 2026</h1>
+
+    <div class="nav-controls">
+      <button id="btnPrev" class="nav-arrow" title="Semestre précédent" aria-label="Semestre précédent">
+        &#9664;&#9664;
+      </button>
+      <span id="currentYearDisplay" class="year-label">2026</span>
+      <button id="btnNext" class="nav-arrow" title="Semestre suivant" aria-label="Semestre suivant">
+        &#9654;&#9654;
+      </button>
+    </div>
+
+  </header>
+
+  <!-- Barre de filtres pour les zones scolaires -->
+  <section class="filters-bar" aria-label="Sélection des zones scolaires">
+    <span class="filters-label">Vacances scolaires :</span>
+
+    <label class="filter-item zone-a" data-tooltip="Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers">
+      <input type="checkbox" id="checkZoneA" value="A">
+      <span class="custom-check check-a"></span>
+      <span class="filter-text">Zone A</span>
+    </label>
+
+    <label class="filter-item zone-b" data-tooltip="Aix-Marseille, Amiens, Caen, Lille, Nancy-Metz, Nantes, Nice, Orléans-Tours, Reims, Rennes, Rouen, Strasbourg">
+      <input type="checkbox" id="checkZoneB" value="B">
+      <span class="custom-check check-b"></span>
+      <span class="filter-text">Zone B</span>
+    </label>
+
+    <label class="filter-item zone-c" data-tooltip="Créteil, Montpellier, Paris, Toulouse, Versailles">
+      <input type="checkbox" id="checkZoneC" value="C">
+      <span class="custom-check check-c"></span>
+      <span class="filter-text">Zone C</span>
+    </label>
+
+    <label class="filter-item zone-corse">
+      <input type="checkbox" id="checkZoneCorse" value="Corse">
+      <span class="custom-check check-corse"></span>
+      <span class="filter-text">Corse</span>
+    </label>
+
+    <label class="filter-item zone-guadeloupe">
+      <input type="checkbox" id="checkZoneGuadeloupe" value="Guadeloupe">
+      <span class="custom-check check-guadeloupe"></span>
+      <span class="filter-text">Guadeloupe</span>
+    </label>
+
+    <label class="filter-item zone-martinique">
+      <input type="checkbox" id="checkZoneMartinique" value="Martinique">
+      <span class="custom-check check-martinique"></span>
+      <span class="filter-text">Martinique</span>
+    </label>
+
+    <label class="filter-item zone-guyane">
+      <input type="checkbox" id="checkZoneGuyane" value="Guyane">
+      <span class="custom-check check-guyane"></span>
+      <span class="filter-text">Guyane</span>
+    </label>
+
+    <label class="filter-item zone-reunion">
+      <input type="checkbox" id="checkZoneReunion" value="La Réunion">
+      <span class="custom-check check-reunion"></span>
+      <span class="filter-text">La Réunion</span>
+    </label>
+
+    <label class="filter-item zone-mayotte">
+      <input type="checkbox" id="checkZoneMayotte" value="Mayotte">
+      <span class="custom-check check-mayotte"></span>
+      <span class="filter-text">Mayotte</span>
+    </label>
+  </section>
+
+  <!-- Grille du calendrier mural -->
+  <main id="calendarGrid" class="calendar-grid">
+    <!-- 6 colonnes de mois générées dynamiquement en JavaScript -->
+  </main>
+
+  <!-- Bandeau d'information légale sur les cookies -->
+  <footer class="cookie-notice" id="cookieNotice">
+    <p>
+      <strong>Information sur les cookies :</strong> Ce site utilise des cookies et le stockage local exclusivement pour mémoriser vos préférences d'affichage des zones de vacances scolaires.<br>Aucun traceur publicitaire ou donnée personnelle n'est collecté.
+    </p>
+    <button type="button" class="btn-info" id="btn-open-info" title="Informations & Crédits">?</button>
+  </footer>
+
+  <!-- ================= MODALE INFORMATIONS ================= -->
+  <div id="info-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">À propos de ce calendrier</h2>
+        <button type="button" class="modal-close" id="btn-close-info" aria-label="Fermer la boîte de dialogue">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <div class="info-section">
+          <h3>👨‍💻 Auteur & Licence</h3>
+          <p>Développé par <strong>Nicolas Chauvet, Atome Dev</strong>.</p>
+          <p>Assisté de Gemini 3.7 Flash</p>
+          <p>
+            Ce projet est libre et <strong>Open Source</strong> sous licence
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a>.
+          </p>
+        </div>
+
+        <div class="info-section">
+          <h3>🐙 Code source & Dépôt GitHub</h3>
+          <p>
+            Le code source complet est disponible publiquement sur GitHub. N'hésitez pas à contribuer ou signaler un problème :
+          </p>
+          <p>
+            👉 <a href="https://github.com/atome-dev/calendrier" target="_blank" rel="noopener noreferrer" class="github-link">
+            github.com/atome-dev/calendrier
+          </a>
+          </p>
+        </div>
+
+        <div class="info-section">
+          <h3>🏛️ Sources des données officielles</h3>
+          <p>
+            Les dates officielles du calendrier scolaire et des jours fériés sont issues de la plateforme publique :
+          </p>
+          <p style="margin-left: 20px;">
+            🔗 <a href="https://www.service-public.gouv.fr" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>
+          </p>
+          <p>Celles-ci sont parfois manquantes ou susceptibles d'évoluer. Elles sont régulièrement mises à jour.</p>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-action" id="btn-close-info-footer">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/saints.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
