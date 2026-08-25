@@ -64,6 +64,7 @@
     { "nom": "Toussaint 2026", "zone": "Martinique", "debut": "2026-10-20", "fin": "2026-11-02" },
     { "nom": "Toussaint 2026", "zone": "Guyane", "debut": "2026-10-17", "fin": "2026-11-02" },
     { "nom": "Vacances après 1ère période", "zone": "Reunion", "debut": "2026-10-10", "fin": "2026-10-25" },
+    { "nom": "Toussaint 2026", "zone": "Mayotte", "debut": "2026-10-10", "fin": "2026-10-25" },
 
     { "nom": "Noël 2026", "zone": "A", "debut": "2026-12-19", "fin": "2027-01-03" },
     { "nom": "Noël 2026", "zone": "B", "debut": "2026-12-19", "fin": "2027-01-03" },

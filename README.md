@@ -21,6 +21,10 @@ Un calendrier semestriel interactif, responsive et imprimable inspiré des calen
     - **Guyane**
     - **La Réunion**
     - **Mayotte**
+    - **Nouvelle Calédonie**
+    - **Polynésie Française**
+    - **Wallis et Futuna**
+    - **Saint-Pierre et Miquelon**
 - **Survol informatif** : Affichage au survol de la liste complète des académies concernées par chaque zone.
 - **100% Responsive** : Adaptation automatique sur écrans étroits et smartphones (affichage des mois sur une seule colonne).
 - **Prêt pour l'impression** : Optimisé pour une impression propre sur format A4 paysage.

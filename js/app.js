@@ -2,7 +2,7 @@
 const state = {
     currentYear: new Date().getFullYear(),
     currentSemester: new Date().getMonth() < 6 ? 1 : 2, // 1: Jan-Juin, 2: Juil-Déc
-    zones: ['A', 'B', 'C', 'Corse', 'Guadeloupe', 'Martinique', 'Guyane', 'Reunion', 'Mayotte'],
+    zones: ['A', 'B', 'C', 'Corse', 'Guadeloupe', 'Martinique', 'Guyane', 'Reunion', 'Mayotte', 'NouvelleCaledonie', 'Polynesie', 'WallisFutuna', 'SaintPierreMiquelon'],
     activeZones: [],
     vacationsData: []
 };
@@ -162,10 +162,10 @@ function renderCalendar() {
     const grid = document.getElementById('calendarGrid');
     const calendarTitle = document.getElementById('calendarTitle');
     const semesterSubtitle = document.getElementById('semesterSubtitle');
-    const currentYearDisplay = document.getElementById('currentYearDisplay');
+    //const currentYearDisplay = document.getElementById('currentYearDisplay');
 
     calendarTitle.textContent = `Calendrier ${state.currentYear}`;
-    currentYearDisplay.textContent = `${state.currentYear}`;
+    //currentYearDisplay.textContent = `${state.currentYear}`;
     semesterSubtitle.textContent = `Semestre ${state.currentSemester}`;
 
     grid.innerHTML = '';

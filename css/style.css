@@ -93,7 +93,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     font-size: 0.88rem;
 }
 
@@ -109,7 +109,7 @@ body {
     gap: 6px;
     cursor: pointer;
     user-select: none;
-    padding: 2px 6px;
+    padding: 1px;
     border-radius: 4px;
     border: 1px solid transparent;
 }
@@ -121,10 +121,10 @@ body {
 }
 
 .custom-check {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     border: 1px solid #64748b;
-    border-radius: 3px;
+    border-radius: 10px;
     display: inline-block;
     position: relative;
     background-color: #ffffff;
@@ -133,8 +133,8 @@ body {
 .filter-item input:checked + .custom-check::after {
     content: '';
     position: absolute;
-    left: 4px;
-    top: 1px;
+    left: 7px;
+    top: 3px;
     width: 3px;
     height: 7px;
     border: solid #ffffff;
@@ -143,15 +143,19 @@ body {
 }
 
 /* Couleurs des Zones */
-.check-a { background-color: #e53935; border-color: #b71c1c; }
-.check-b { background-color: #fbc02d; border-color: #f57f17; }
-.check-c { background-color: #43a047; border-color: #1b5e20; }
-.check-corse { background-color: #8e24aa; border-color: #4a148c; }
-.check-guadeloupe { background-color: #465f9d; border-color: #3b4a73; }
-.check-martinique { background-color: #ffca00; border-color: #c29b02; }
-.check-guyane { background-color: #869ece; border-color: #6c81ab; }
-.check-reunion { background-color: #000091; border-color: #020269; }
-.check-mayotte { background-color: #e4794a; border-color: #965133; }
+.check-a { background-color: #e53935;}
+.check-b { background-color: #e88941;}
+.check-c { background-color: #43a047;}
+.check-corse { background-color: #8e24aa;}
+.check-guadeloupe { background-color: #1118f0;}
+.check-martinique { background-color: #ffca00;}
+.check-guyane { background-color: #869ece;}
+.check-reunion { background-color: #000091;}
+.check-mayotte { background-color: #85581e;}
+.check-saint-pierre-miquelon { background-color: #80ffa7;}
+.check-nouvelle-caledonie { background-color: #fc80ff;}
+.check-wallis-futuna { background-color: #ccff80;}
+.check-polynesie { background-color: #80f4ff;}
 
 .filter-item input:not(:checked) + .custom-check {
     background-color: #f1f5f9;
@@ -239,14 +243,18 @@ body {
 
 /* Couleurs des bandes de vacances */
 .vacation-slot.vac-A { background-color: #e53935; }
-.vacation-slot.vac-B { background-color: #fbc02d; }
+.vacation-slot.vac-B { background-color: #e88941; }
 .vacation-slot.vac-C { background-color: #43a047; }
 .vacation-slot.vac-Corse { background-color: #8e24aa; }
-.vacation-slot.vac-Guadeloupe { background-color: #465f9d; }
+.vacation-slot.vac-Guadeloupe { background-color: #1118f0; }
 .vacation-slot.vac-Martinique { background-color: #ffca00; }
 .vacation-slot.vac-Guyane { background-color: #869ece; }
 .vacation-slot.vac-Reunion { background-color: #000091; }
-.vacation-slot.vac-Mayotte { background-color: #e4794a; }
+.vacation-slot.vac-Mayotte { background-color: #85581e; }
+.vacation-slot.vac-SaintPierreMiquelon { background-color: #80ffa7; }
+.vacation-slot.vac-NouvelleCaledonie { background-color: #fc80ff; }
+.vacation-slot.vac-WallisFutuna { background-color: #ccff80; }
+.vacation-slot.vac-Polynesie { background-color: #80f4ff; }
 
 /* Contenu textuel de la ligne du jour */
 .day-num {
@@ -329,7 +337,6 @@ body {
 .cookie-notice {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 16px;                     /* Espace entre le texte et le bouton */
     padding: 10px 16px;
     background-color: #f8fafc;

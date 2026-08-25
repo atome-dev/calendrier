@@ -58,78 +58,22 @@
       <span id="semesterSubtitle" class="semester-subtitle">Semestre 2</span>
     </div>
 
-    <h1 id="calendarTitle" class="calendar-title">Calendrier 2026</h1>
-
     <div class="nav-controls">
+
       <button id="btnPrev" class="nav-arrow" title="Semestre précédent" aria-label="Semestre précédent">
         &#9664;&#9664;
       </button>
-      <span id="currentYearDisplay" class="year-label">2026</span>
+
+      <h1 id="calendarTitle" class="calendar-title">Calendrier 2026</h1>
+
       <button id="btnNext" class="nav-arrow" title="Semestre suivant" aria-label="Semestre suivant">
         &#9654;&#9654;
       </button>
+
     </div>
 
   </header>
 
-  <!-- Barre de filtres pour les zones scolaires -->
-  <section class="filters-bar" aria-label="Sélection des zones scolaires">
-    <span class="filters-label">Vacances scolaires :</span>
-
-    <label class="filter-item zone-a" data-tooltip="Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers">
-      <input type="checkbox" id="checkZoneA" value="A">
-      <span class="custom-check check-a"></span>
-      <span class="filter-text">Zone A</span>
-    </label>
-
-    <label class="filter-item zone-b" data-tooltip="Aix-Marseille, Amiens, Caen, Lille, Nancy-Metz, Nantes, Nice, Orléans-Tours, Reims, Rennes, Rouen, Strasbourg">
-      <input type="checkbox" id="checkZoneB" value="B">
-      <span class="custom-check check-b"></span>
-      <span class="filter-text">Zone B</span>
-    </label>
-
-    <label class="filter-item zone-c" data-tooltip="Créteil, Montpellier, Paris, Toulouse, Versailles">
-      <input type="checkbox" id="checkZoneC" value="C">
-      <span class="custom-check check-c"></span>
-      <span class="filter-text">Zone C</span>
-    </label>
-
-    <label class="filter-item zone-corse">
-      <input type="checkbox" id="checkZoneCorse" value="Corse">
-      <span class="custom-check check-corse"></span>
-      <span class="filter-text">Corse</span>
-    </label>
-
-    <label class="filter-item zone-guadeloupe">
-      <input type="checkbox" id="checkZoneGuadeloupe" value="Guadeloupe">
-      <span class="custom-check check-guadeloupe"></span>
-      <span class="filter-text">Guadeloupe</span>
-    </label>
-
-    <label class="filter-item zone-martinique">
-      <input type="checkbox" id="checkZoneMartinique" value="Martinique">
-      <span class="custom-check check-martinique"></span>
-      <span class="filter-text">Martinique</span>
-    </label>
-
-    <label class="filter-item zone-guyane">
-      <input type="checkbox" id="checkZoneGuyane" value="Guyane">
-      <span class="custom-check check-guyane"></span>
-      <span class="filter-text">Guyane</span>
-    </label>
-
-    <label class="filter-item zone-reunion">
-      <input type="checkbox" id="checkZoneReunion" value="La Réunion">
-      <span class="custom-check check-reunion"></span>
-      <span class="filter-text">La Réunion</span>
-    </label>
-
-    <label class="filter-item zone-mayotte">
-      <input type="checkbox" id="checkZoneMayotte" value="Mayotte">
-      <span class="custom-check check-mayotte"></span>
-      <span class="filter-text">Mayotte</span>
-    </label>
-  </section>
 
   <!-- Grille du calendrier mural -->
   <main id="calendarGrid" class="calendar-grid">
@@ -138,10 +82,93 @@
 
   <!-- Bandeau d'information légale sur les cookies -->
   <footer class="cookie-notice" id="cookieNotice">
-    <p>
-      <strong>Information sur les cookies :</strong> Ce site utilise des cookies et le stockage local exclusivement pour mémoriser vos préférences d'affichage des zones de vacances scolaires.<br>Aucun traceur publicitaire ou donnée personnelle n'est collecté.
-    </p>
+    <section class="filters-bar" aria-label="Sélection des zones scolaires">
+
+      <label class="filter-item zone-a" data-tooltip="Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers">
+        <input type="checkbox" id="checkZoneA" value="A">
+        <span class="custom-check check-a"></span>
+        <span class="filter-text">Zone A</span>
+      </label>
+
+      <label class="filter-item zone-b" data-tooltip="Aix-Marseille, Amiens, Caen, Lille, Nancy-Metz, Nantes, Nice, Orléans-Tours, Reims, Rennes, Rouen, Strasbourg">
+        <input type="checkbox" id="checkZoneB" value="B">
+        <span class="custom-check check-b"></span>
+        <span class="filter-text">Zone B</span>
+      </label>
+
+      <label class="filter-item zone-c" data-tooltip="Créteil, Montpellier, Paris, Toulouse, Versailles">
+        <input type="checkbox" id="checkZoneC" value="C">
+        <span class="custom-check check-c"></span>
+        <span class="filter-text">Zone C</span>
+      </label>
+
+      <label class="filter-item zone-corse">
+        <input type="checkbox" id="checkZoneCorse" value="Corse">
+        <span class="custom-check check-corse"></span>
+        <span class="filter-text">Corse</span>
+      </label>
+
+      <label class="filter-item zone-guadeloupe">
+        <input type="checkbox" id="checkZoneGuadeloupe" value="Guadeloupe">
+        <span class="custom-check check-guadeloupe"></span>
+        <span class="filter-text">Guadeloupe</span>
+      </label>
+
+      <label class="filter-item zone-martinique">
+        <input type="checkbox" id="checkZoneMartinique" value="Martinique">
+        <span class="custom-check check-martinique"></span>
+        <span class="filter-text">Martinique</span>
+      </label>
+
+      <label class="filter-item zone-guyane">
+        <input type="checkbox" id="checkZoneGuyane" value="Guyane">
+        <span class="custom-check check-guyane"></span>
+        <span class="filter-text">Guyane</span>
+      </label>
+
+      <label class="filter-item zone-reunion">
+        <input type="checkbox" id="checkZoneReunion" value="La Réunion">
+        <span class="custom-check check-reunion"></span>
+        <span class="filter-text">La Réunion</span>
+      </label>
+
+      <label class="filter-item zone-mayotte">
+        <input type="checkbox" id="checkZoneMayotte" value="Mayotte">
+        <span class="custom-check check-mayotte"></span>
+        <span class="filter-text">Mayotte</span>
+      </label>
+
+      <label class="filter-item zone-nouvelle-caledonie">
+        <input type="checkbox" id="checkZoneNouvelleCaledonie" value="Nouvelle Calédonie">
+        <span class="custom-check check-nouvelle-caledonie"></span>
+        <span class="filter-text">Nouvelle Calédonie</span>
+      </label>
+
+      <label class="filter-item zone-polynesie">
+        <input type="checkbox" id="checkZonePolynesie" value="Polynésie Française">
+        <span class="custom-check check-polynesie"></span>
+        <span class="filter-text">Polynésie Française</span>
+      </label>
+
+      <label class="filter-item zone-wallis-futuna">
+        <input type="checkbox" id="checkZoneWallisFutuna" value="Wallis et Futuna">
+        <span class="custom-check check-wallis-futuna"></span>
+        <span class="filter-text">Wallis et Futuna</span>
+      </label>
+
+      <label class="filter-item zone-saint-pierre-miquelon">
+        <input type="checkbox" id="checkZoneSaintPierreMiquelon" value="Saint-Pierre et Miquelon">
+        <span class="custom-check check-saint-pierre-miquelon"></span>
+        <span class="filter-text">Saint-Pierre et Miquelon</span>
+      </label>
+    </section>
+
+    </section>
+      <span><strong>Information sur les cookies&nbsp;:&nbsp;</strong></span>
+      <span>Ce site utilise des cookies et le stockage local exclusivement pour mémoriser vos préférences d'affichage des zones de vacances scolaires.<br>Aucun traceur publicitaire ou donnée personnelle n'est collecté.</span>
     <button type="button" class="btn-info" id="btn-open-info" title="Informations & Crédits">?</button>
+    </section>
+
   </footer>
 
   <!-- ================= MODALE INFORMATIONS ================= -->
