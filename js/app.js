@@ -27,7 +27,7 @@ const isLocalhost = Boolean(
 // URL de l'API selon le contexte
 const API_URL = isLocalhost
     ? 'http://127.0.0.1:8000/api/vacances'
-    : 'https://calendrier-api.atome-dev.fr/vacances';
+    : 'https://calendrier-api.atome-dev.fr/api/vacances';
 
 const CACHE_KEY = 'cached_vacances_data';
 
