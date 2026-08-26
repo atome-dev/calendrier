@@ -1,5 +1,5 @@
 {
-  "zones": ["A", "B", "C", "Corse", "Guadeloupe", "Martinique", "Guyanne", "Reunion", "Mayotte"],
+  "zones": ["A", "B", "C", "Corse", "Guadeloupe", "Martinique", "Guyane", "Reunion", "Mayotte"],
   "periodes": [
     { "nom": "Hiver 2025", "zone": "A", "debut": "2025-02-22", "fin": "2025-03-09" },
     { "nom": "Hiver 2025", "zone": "B", "debut": "2025-02-08", "fin": "2025-02-23" },
@@ -92,7 +92,7 @@
     { "nom": "Printemps 2027", "zone": "Corse", "debut": "2027-04-10", "fin": "2027-04-25" },
     { "nom": "Vacances de Pâques", "zone": "Guadeloupe", "debut": "2027-03-25", "fin": "2027-04-11" },
     { "nom": "Vacances de Pâques", "zone": "Martinique", "debut": "2027-04-20", "fin": "2027-05-02" },
-    { "nom": "Vacances de Pâques", "zone": "Guyanne", "debut": "2027-03-25", "fin": "2027-04-11" },
+    { "nom": "Vacances de Pâques", "zone": "Guyane", "debut": "2027-03-25", "fin": "2027-04-11" },
     { "nom": "Vacances après 4ème période", "zone": "Reunion", "debut": "2027-05-05", "fin": "2027-05-18" },
     { "nom": "Vacances de Pâques", "zone": "Mayotte", "debut": "2027-05-01", "fin": "2027-05-17" },
 

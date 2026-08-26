@@ -152,9 +152,9 @@ body {
 .check-guyane { background-color: #869ece;}
 .check-reunion { background-color: #000091;}
 .check-mayotte { background-color: #85581e;}
-.check-saint-pierre-miquelon { background-color: #80ffa7;}
+.check-saint-pierre-et-miquelon { background-color: #80ffa7;}
 .check-nouvelle-caledonie { background-color: #fc80ff;}
-.check-wallis-futuna { background-color: #ccff80;}
+.check-wallis-et-futuna { background-color: #ccff80;}
 .check-polynesie { background-color: #80f4ff;}
 
 .filter-item input:not(:checked) + .custom-check {
@@ -251,9 +251,9 @@ body {
 .vacation-slot.vac-Guyane { background-color: #869ece; }
 .vacation-slot.vac-Reunion { background-color: #000091; }
 .vacation-slot.vac-Mayotte { background-color: #85581e; }
-.vacation-slot.vac-SaintPierreMiquelon { background-color: #80ffa7; }
+.vacation-slot.vac-SaintPierreEtMiquelon { background-color: #80ffa7; }
 .vacation-slot.vac-NouvelleCaledonie { background-color: #fc80ff; }
-.vacation-slot.vac-WallisFutuna { background-color: #ccff80; }
+.vacation-slot.vac-WallisEtFutuna { background-color: #ccff80; }
 .vacation-slot.vac-Polynesie { background-color: #80f4ff; }
 
 /* Contenu textuel de la ligne du jour */

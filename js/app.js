@@ -2,7 +2,7 @@
 const state = {
     currentYear: new Date().getFullYear(),
     currentSemester: new Date().getMonth() < 6 ? 1 : 2, // 1: Jan-Juin, 2: Juil-Déc
-    zones: ['A', 'B', 'C', 'Corse', 'Guadeloupe', 'Martinique', 'Guyane', 'Reunion', 'Mayotte', 'NouvelleCaledonie', 'Polynesie', 'WallisFutuna', 'SaintPierreMiquelon'],
+    zones: ['A', 'B', 'C', 'Corse', 'Guadeloupe', 'Martinique', 'Guyane', 'Reunion', 'Mayotte', 'NouvelleCaledonie', 'Polynesie', 'WallisEtFutuna', 'SaintPierreEtMiquelon'],
     activeZones: [],
     vacationsData: []
 };
@@ -15,6 +15,21 @@ const MONTH_NAMES_FR = [
 const DAY_INITIALS_FR = ["D", "L", "M", "M", "J", "V", "S"];
 
 // --- Gestion des Cookies & Préférences ---
+
+
+const isLocalhost = Boolean(
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1' ||
+    window.location.hostname === 'calendrier.dev.fr' ||
+    window.location.hostname === '' // si ouvert directement via file://
+);
+
+// URL de l'API selon le contexte
+const API_URL = isLocalhost
+    ? 'http://127.0.0.1:8000/api/vacances'
+    : 'https://calendrier-api.atome-dev.fr/vacances';
+
+const CACHE_KEY = 'cached_vacances_data';
 
 function setCookie(name, value, days = 365) {
     const d = new Date();
@@ -145,16 +160,46 @@ function isDateInVacation(dateStr, zone) {
 }
 
 // --- Rendu du Calendrier ---
-
+async function chargerVacances() {
+}
 async function loadVacationsData() {
     try {
-        const response = await fetch('config/vacances.json');
-        if (response.ok) {
-            const data = await response.json();
-            state.vacationsData = data.periodes || [];
+        // 1. Tentative d'appel à l'API avec un timeout court (ex: 5 secondes)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+        const response = await fetch(API_URL, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
         }
+
+        const data = await response.json();
+
+        // 2. Succès : on enregistre les données dans le cache local
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        console.info('Données récupérées en direct depuis l\'API.');
+        state.vacationsData = data.periodes || [];
+
     } catch (error) {
-        console.warn("Chargement distant de 'config/vacances.json' non disponible, utilisation des données intégrées.");
+        console.warn(`L'API est indisponible (${error.message}). Tentative de récupération depuis le cache local...`);
+
+        // 4. Échec : on cherche dans le cache local
+        const cachedData = localStorage.getItem(CACHE_KEY);
+
+        if (cachedData) {
+            const data = JSON.parse(cachedData);
+            console.info('Données chargées depuis le cache local.');
+
+            // Affichage du calendrier avec les données en cache
+            state.vacationsData = data.periodes || [];
+
+        } else {
+            // Aucun cache disponible (première visite ET API en panne)
+            console.error('Aucune donnée en cache disponible.');
+            afficherMessageErreur('Impossible de charger les données du calendrier.');
+        }
     }
 }
 
