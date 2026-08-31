@@ -2,48 +2,79 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Calendrier</title>
+  <title>Calendrier 2026 Gratuit & Imprimable | Vacances Scolaires Zones A, B, C & Jours Fériés</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calendrier perpétuel gratuit et imprimable. Visualisez les jours fériés et vacances scolaires des Zones A, B et C (données officielles).">
-  <meta name="keywords" content="calendrier, calendrier perpétuel, vacances scolaires, calendrier semestriel, calendrier officiel">
+  <meta name="description" content="Calendrier 2026 perpétuel semestriel gratuit et imprimable. Consultez les dates officielles des vacances scolaires (Zones A, B, C, Corse, DOM-TOM) et jours fériés.">
   <meta name="author" content="Nicolas Chauvet, Atome Dev">
+  <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://calendrier.atome-dev.fr/">
 
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://calendrier.atome-dev.fr/">
-  <meta property="og:title" content="Calendrier – Vacances & Jours Fériés">
-  <meta property="og:description" content="Outil en ligne gratuit pour consulter votre calendrier semestriel avec zones scolaires officielles.">
+  <meta property="og:title" content="Calendrier 2026 Semestriel – Vacances Scolaires & Jours Fériés">
+  <meta property="og:description" content="Consultez et imprimez votre calendrier perpétuel avec les vacances scolaires des Zones A, B, C et départements d'outre-mer.">
   <meta property="og:image" content="https://calendrier.atome-dev.fr/img/preview.png">
 
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Calendrier Vacances Scolaires">
-  <meta name="twitter:description" content="Calendrier semestriel interactif avec les vacances scolaires.">
+  <meta name="twitter:title" content="Calendrier 2026 – Vacances Scolaires & Jours Fériés">
+  <meta name="twitter:description" content="Calendrier semestriel interactif et imprimable avec zones scolaires officielles et jours fériés.">
   <meta name="twitter:image" content="https://calendrier.atome-dev.fr/img/preview.png">
 
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/popup.css">
 
+  <!-- Données structurées Schema.org (Application + FAQ pour les Rich Snippets) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Calendrier Vacances Scolaires",
-      "url": "https://calendrier.atome-dev.fr/",
-      "description": "Calendrier semestriel intégrant les zones de vacances scolaires françaises et les jours fériés.",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Nicolas Chauvet, Atome Dev"
-      }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Calendrier Perpétuel & Vacances Scolaires",
+          "url": "https://calendrier.atome-dev.fr/",
+          "inLanguage": "fr-FR",
+          "description": "Calendrier semestriel interactif intégrant les zones de vacances scolaires françaises et les jours fériés.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Nicolas Chauvet",
+            "url": "https://atome-dev.fr/"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Comment savoir à quelle zone scolaire appartient mon académie ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La Zone A comprend Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon et Poitiers. La Zone B regroupe Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie, Orléans-Tours, Reims, Rennes et Strasbourg. La Zone C comprend Créteil, Montpellier, Paris, Toulouse et Versailles."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ce calendrier scolaire est-il imprimable gratuitement ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, ce calendrier semestriel mural est 100 % gratuit et conçu pour être facilement exporté ou imprimé au format papier."
+              }
+            }
+          ]
+        }
+      ]
     }
   </script>
   <script data-goatcounter="https://atome-dev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -54,12 +85,10 @@
   <!-- En-tête avec titre et navigation -->
   <header class="calendar-header">
     <div class="header-left">
-      <!-- Zone réservée / logo ou titre secondaire -->
       <span id="semesterSubtitle" class="semester-subtitle">Semestre 2</span>
     </div>
 
     <div class="nav-controls">
-
       <button id="btnPrev" class="nav-arrow" title="Semestre précédent" aria-label="Semestre précédent">
         &#9664;&#9664;
       </button>
@@ -69,21 +98,17 @@
       <button id="btnNext" class="nav-arrow" title="Semestre suivant" aria-label="Semestre suivant">
         &#9654;&#9654;
       </button>
-
     </div>
-
   </header>
-
 
   <!-- Grille du calendrier mural -->
   <main id="calendarGrid" class="calendar-grid">
     <!-- 6 colonnes de mois générées dynamiquement en JavaScript -->
   </main>
 
-  <!-- Bandeau d'information légale sur les cookies -->
+  <!-- Filtres des zones -->
   <footer class="cookie-notice" id="cookieNotice">
     <section class="filters-bar" aria-label="Sélection des zones scolaires">
-
       <label class="filter-item zone-a" data-tooltip="Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers">
         <input type="checkbox" id="checkZoneA" value="A">
         <span class="custom-check check-a"></span>
@@ -163,13 +188,34 @@
       </label>
     </section>
 
-    </section>
+    <!-- Zone d'informations cookies (structure corrigée sans balises section superflues) -->
+    <div class="cookie-text-container">
       <span><strong>Information sur les cookies&nbsp;:&nbsp;</strong></span>
       <span>Ce site utilise des cookies et le stockage local exclusivement pour mémoriser vos préférences d'affichage des zones de vacances scolaires.<br>Aucun traceur publicitaire ou donnée personnelle n'est collecté.</span>
-    <button type="button" class="btn-info" id="btn-open-info" title="Informations & Crédits">?</button>
-    </section>
-
+      <button type="button" class="btn-info" id="btn-open-info" title="Informations & Crédits">?</button>
+    </div>
   </footer>
+
+  <!-- ================= SECTION TEXTE SEO / GUIDE (Accessible en bas de page) ================= -->
+  <section class="seo-content-section" style="padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; line-height: 1.6; color: #444;">
+    <h2>Calendrier officiel des vacances scolaires et jours fériés</h2>
+    <p>
+      Consultez en temps réel le <strong>calendrier semestriel interactif</strong> officiel. Cet outil en ligne gratuit vous permet de planifier vos congés, ponts et séjours scolaires selon votre zone géographique en France métropolitaine, en Corse et dans les territoires d'Outre-mer.
+    </p>
+
+    <h3>Répartition des académies par zone scolaire :</h3>
+    <ul>
+      <li><strong>Zone A :</strong> Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers.</li>
+      <li><strong>Zone B :</strong> Aix-Marseille, Amiens, Lille, Nancy-Metz, Nantes, Nice, Normandie (Caen, Rouen), Orléans-Tours, Reims, Rennes, Strasbourg.</li>
+      <li><strong>Zone C :</strong> Créteil, Montpellier, Paris, Toulouse, Versailles.</li>
+      <li><strong>Autres territoires :</strong> Corse, Guadeloupe, Guyane, Martinique, Mayotte, La Réunion, Saint-Pierre-et-Miquelon, Polynésie française, Nouvelle-Calédonie, Wallis-et-Futuna.</li>
+    </ul>
+
+    <h3>Comment imprimer votre calendrier semestriel ?</h3>
+    <p>
+      Sélectionnez vos zones scolaires via les filtres en bas d'écran, ajustez le semestre souhaité à l'aide des flèches de navigation, puis utilisez le raccourci d'impression de votre navigateur (<kbd>Ctrl + P</kbd> ou <kbd>Cmd + P</kbd>).
+    </p>
+  </section>
 
   <!-- ================= MODALE INFORMATIONS ================= -->
   <div id="info-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
@@ -179,11 +225,9 @@
         <button type="button" class="modal-close" id="btn-close-info" aria-label="Fermer la boîte de dialogue">&times;</button>
       </div>
       <div class="modal-body">
-
         <div class="info-section">
           <h3>👨‍💻 Auteur & Licence</h3>
           <p>Développé par <strong>Nicolas Chauvet, Atome Dev</strong>.</p>
-          <p>Assisté de Gemini 3.7 Flash</p>
           <p>
             Ce projet est libre et <strong>Open Source</strong> sous licence
             <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a>.
@@ -192,27 +236,19 @@
 
         <div class="info-section">
           <h3>🐙 Code source & Dépôt GitHub</h3>
+          <p>Le code source complet est disponible publiquement sur GitHub :</p>
           <p>
-            Le code source complet est disponible publiquement sur GitHub. N'hésitez pas à contribuer ou signaler un problème :
-          </p>
-          <p>
-            👉 <a href="https://github.com/atome-dev/calendrier" target="_blank" rel="noopener noreferrer" class="github-link">
-            github.com/atome-dev/calendrier
-          </a>
+            👉 <a href="https://github.com/atome-dev/calendrier" target="_blank" rel="noopener noreferrer" class="github-link">github.com/atome-dev/calendrier</a>
           </p>
         </div>
 
         <div class="info-section">
           <h3>🏛️ Sources des données officielles</h3>
           <p>
-            Les dates officielles du calendrier scolaire et des jours fériés sont issues de la plateforme publique :
+            Les dates officielles du calendrier scolaire et des jours fériés proviennent du portail :
+            <a href="https://www.service-public.gouv.fr" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>.
           </p>
-          <p style="margin-left: 20px;">
-            🔗 <a href="https://www.service-public.gouv.fr" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>
-          </p>
-          <p>Celles-ci sont parfois manquantes ou susceptibles d'évoluer. Elles sont régulièrement mises à jour.</p>
         </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-modal-action" id="btn-close-info-footer">Fermer</button>
