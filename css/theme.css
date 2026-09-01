@@ -1,0 +1,580 @@
+/* ============================================================
+   Switch d'affichage + thème "moderne"
+   ------------------------------------------------------------
+   Règle du jeu : ce fichier n'ajoute que le switch. Tout le reste
+   est enfermé dans html[data-theme="modern"], donc sans attribut
+   (= mode classique) le site s'affiche exactement comme avant.
+   Le thème moderne est aussi enfermé dans @media screen : à
+   l'impression, on retombe sur le rendu classique.
+   ============================================================ */
+
+/* ---------- Le switch (présent dans les deux modes) ---------- */
+
+.mode-switch {
+    justify-self: end;
+    display: inline-flex;
+    border: 1px solid #64748b;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mode-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: none;
+    background: linear-gradient(to bottom, #ffffff, #e2e8f0);
+    color: #475569;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.mode-btn + .mode-btn {
+    border-left: 1px solid #94a3b8;
+}
+
+.mode-btn:hover {
+    background: linear-gradient(to bottom, #f8fafc, #cbd5e1);
+    color: #1d4ed8;
+}
+
+.mode-btn.is-on {
+    background: linear-gradient(to bottom, #eff6ff, #93c5fd);
+    color: #1d4ed8;
+}
+
+.mode-btn svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: none; /* les icônes n'apparaissent qu'en mode moderne */
+}
+
+@media (max-width: 900px) {
+    .mode-switch {
+        justify-self: center;
+    }
+}
+
+@media print {
+    .mode-switch {
+        display: none;
+    }
+}
+
+
+/* ============================================================
+   THÈME MODERNE
+   ============================================================ */
+
+@media screen {
+
+    html[data-theme="modern"] {
+        --m-text: #101623;
+        --m-muted: #5a6478;
+        --m-faint: #8b94a6;
+
+        --m-border: rgba(15, 23, 42, 0.09);
+        --m-hairline: rgba(15, 23, 42, 0.055);
+        --m-glass: rgba(255, 255, 255, 0.56);
+        --m-glass-2: rgba(255, 255, 255, 0.44);
+        --m-glass-3: rgba(255, 255, 255, 0.5);
+        --m-rim: rgba(255, 255, 255, 0.75);
+
+        --m-accent: #4a63dd;
+        --m-on-accent: #ffffff;
+
+        --m-row-alt: rgba(15, 23, 42, 0.045);
+        --m-row-empty: rgba(15, 23, 42, 0.018);
+        --m-hol-bg: rgba(225, 29, 72, 0.11);
+        --m-hol-fg: #9f1239;
+
+        --m-chip: rgba(255, 255, 255, 0.34);
+        --m-chip-on: rgba(255, 255, 255, 0.92);
+        --m-chip-on-border: rgba(15, 23, 42, 0.14);
+
+        --m-card-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85),
+                         0 2px 6px rgba(15, 23, 42, 0.05),
+                         0 28px 64px -26px rgba(15, 23, 42, 0.38);
+        --m-month-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.5);
+        --m-month-rim: rgba(255, 255, 255, 0.6);
+
+        /* Zones dont la couleur d'origine reste lisible telle quelle */
+        --m-zone-guadeloupe: #1118f0;
+        --m-zone-reunion: #000091;
+        --m-zone-mayotte: #85581e;
+        --m-zone-corse: #8e24aa;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html[data-theme="modern"] {
+            --m-text: #e9edf7;
+            --m-muted: #a3adc2;
+            --m-faint: #7c8699;
+
+            --m-border: rgba(255, 255, 255, 0.10);
+            --m-hairline: rgba(255, 255, 255, 0.065);
+            --m-glass: rgba(24, 30, 46, 0.58);
+            --m-glass-2: rgba(30, 37, 54, 0.46);
+            --m-glass-3: rgba(255, 255, 255, 0.05);
+            --m-rim: rgba(255, 255, 255, 0.10);
+
+            --m-accent: #8098ff;
+            --m-on-accent: #0d111c;
+
+            --m-row-alt: rgba(255, 255, 255, 0.038);
+            --m-row-empty: rgba(0, 0, 0, 0.18);
+            --m-hol-bg: rgba(244, 63, 94, 0.18);
+            --m-hol-fg: #fda4af;
+
+            --m-chip: rgba(255, 255, 255, 0.03);
+            --m-chip-on: rgba(255, 255, 255, 0.12);
+            --m-chip-on-border: rgba(255, 255, 255, 0.18);
+
+            --m-card-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07),
+                             0 2px 6px rgba(0, 0, 0, 0.35),
+                             0 32px 70px -26px rgba(0, 0, 0, 0.75);
+            --m-month-shadow: 0 14px 30px -20px rgba(0, 0, 0, 0.9);
+            --m-month-rim: rgba(255, 255, 255, 0.075);
+
+            /* Bleus marine et brun illisibles sur fond sombre : éclaircis */
+            --m-zone-guadeloupe: #6d7cff;
+            --m-zone-reunion: #5566ff;
+            --m-zone-mayotte: #c08a45;
+            --m-zone-corse: #c06fdb;
+        }
+    }
+
+    /* ---------- Fond de page ---------- */
+
+    html[data-theme="modern"] body {
+        padding: 18px;
+        color: var(--m-text);
+        background-color: #eceff6;
+        background-image:
+            radial-gradient(900px 520px at 10% -12%, rgba(79, 110, 247, 0.20), transparent 62%),
+            radial-gradient(760px 460px at 92% 2%, rgba(14, 165, 164, 0.15), transparent 64%),
+            radial-gradient(820px 560px at 46% 112%, rgba(124, 92, 255, 0.12), transparent 62%);
+        background-attachment: fixed;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html[data-theme="modern"] body {
+            background-color: #0d111c;
+            background-image:
+                radial-gradient(900px 520px at 10% -12%, rgba(88, 116, 255, 0.28), transparent 62%),
+                radial-gradient(760px 460px at 92% 2%, rgba(16, 185, 183, 0.18), transparent 64%),
+                radial-gradient(820px 560px at 46% 112%, rgba(139, 108, 255, 0.18), transparent 62%);
+        }
+    }
+
+    /* ---------- Carte principale ---------- */
+
+    html[data-theme="modern"] .calendar-wrapper {
+        background-color: var(--m-glass);
+        backdrop-filter: blur(22px) saturate(150%);
+        -webkit-backdrop-filter: blur(22px) saturate(150%);
+        border: 1px solid var(--m-rim);
+        border-radius: 22px;
+        box-shadow: var(--m-card-shadow);
+    }
+
+    /* ---------- En-tête ---------- */
+
+    html[data-theme="modern"] .calendar-header {
+        padding: 13px 18px;
+        background: linear-gradient(to bottom, var(--m-glass-3), transparent);
+        border-bottom: 1px solid var(--m-hairline);
+    }
+
+    html[data-theme="modern"] .semester-subtitle {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: var(--m-chip-on);
+        border: 1px solid var(--m-border);
+        color: var(--m-muted);
+        font-size: 0.74rem;
+        letter-spacing: 0.09em;
+    }
+
+    html[data-theme="modern"] .nav-controls {
+        gap: 14px;
+    }
+
+    html[data-theme="modern"] .calendar-title {
+        color: var(--m-text);
+        font-size: 1.5rem;
+        letter-spacing: -0.015em;
+    }
+
+    html[data-theme="modern"] .nav-arrow {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 999px;
+        border: 1px solid var(--m-border);
+        background: var(--m-chip-on);
+        color: var(--m-muted);
+        font-size: 0.7rem;
+        letter-spacing: -2px;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.07);
+    }
+
+    html[data-theme="modern"] .nav-arrow:hover {
+        background: var(--m-accent);
+        color: var(--m-on-accent);
+    }
+
+    /* ---------- Le switch, version moderne ---------- */
+
+    html[data-theme="modern"] .mode-switch {
+        gap: 2px;
+        padding: 3px;
+        border-radius: 999px;
+        overflow: visible;
+        background: var(--m-chip);
+        border: 1px solid var(--m-border);
+        box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.07);
+    }
+
+    html[data-theme="modern"] .mode-btn {
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--m-muted);
+        font-size: 0.8rem;
+    }
+
+    html[data-theme="modern"] .mode-btn + .mode-btn {
+        border-left: none;
+    }
+
+    html[data-theme="modern"] .mode-btn svg {
+        display: inline-block;
+    }
+
+    html[data-theme="modern"] .mode-btn:hover {
+        background: var(--m-chip-on);
+        color: var(--m-text);
+    }
+
+    html[data-theme="modern"] .mode-btn.is-on {
+        background: var(--m-accent);
+        color: var(--m-on-accent);
+        box-shadow: 0 3px 10px -3px color-mix(in oklab, var(--m-accent) 75%, transparent);
+    }
+
+    html[data-theme="modern"] .mode-btn:focus-visible {
+        outline: 2px solid var(--m-accent);
+        outline-offset: 2px;
+    }
+
+    /* ---------- Filtres de zones : cases à cocher -> pastilles ---------- */
+
+    html[data-theme="modern"] .filters-bar {
+        padding: 11px 18px;
+        gap: 7px;
+        background-color: transparent;
+        border-bottom: 1px solid var(--m-hairline);
+    }
+
+    html[data-theme="modern"] .filter-item {
+        /* La barre de zones doit tenir sur le même nombre de lignes qu'en
+           classique : les pastilles restent un peu plus étroites que les
+           cases d'origine, sinon elles débordent d'une ligne vers 1400px. */
+        gap: 6px;
+        padding: 5px 9px 5px 7px;
+        border-radius: 999px;
+        border: 1px solid var(--m-border);
+        background: var(--m-chip);
+        color: var(--m-faint);
+        font-size: 0.78rem;
+        font-weight: 500;
+    }
+
+    html[data-theme="modern"] .filter-item:has(input:checked) {
+        background: var(--m-chip-on);
+        border-color: var(--m-chip-on-border);
+        color: var(--m-text);
+        font-weight: 600;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.09);
+    }
+
+    html[data-theme="modern"] .filter-item:focus-within {
+        outline: 2px solid var(--m-accent);
+        outline-offset: 2px;
+    }
+
+    html[data-theme="modern"] .custom-check {
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 999px;
+        flex-shrink: 0;
+    }
+
+    /* La coche ne tient pas dans une pastille de 10px : l'opacité fait l'état */
+    html[data-theme="modern"] .filter-item input:checked + .custom-check::after {
+        content: none;
+    }
+
+    html[data-theme="modern"] .filter-item input:not(:checked) + .custom-check {
+        opacity: 0.45;
+    }
+
+    /* style.css repeint les pastilles décochées en gris (#f1f5f9) ; en mode
+       moderne c'est l'opacité qui porte l'état, donc on rend sa couleur à
+       chaque zone avec une spécificité qui repasse devant. */
+    html[data-theme="modern"] .custom-check.check-a { background-color: #e53935; }
+    html[data-theme="modern"] .custom-check.check-b { background-color: #e88941; }
+    html[data-theme="modern"] .custom-check.check-c { background-color: #43a047; }
+    html[data-theme="modern"] .custom-check.check-martinique { background-color: #ffca00; }
+    html[data-theme="modern"] .custom-check.check-guyane { background-color: #869ece; }
+    html[data-theme="modern"] .custom-check.check-saint-pierre-et-miquelon { background-color: #80ffa7; }
+    html[data-theme="modern"] .custom-check.check-nouvelle-caledonie { background-color: #fc80ff; }
+    html[data-theme="modern"] .custom-check.check-wallis-et-futuna { background-color: #ccff80; }
+    html[data-theme="modern"] .custom-check.check-polynesie { background-color: #80f4ff; }
+    html[data-theme="modern"] .custom-check.check-guadeloupe { background-color: var(--m-zone-guadeloupe); }
+    html[data-theme="modern"] .custom-check.check-reunion { background-color: var(--m-zone-reunion); }
+    html[data-theme="modern"] .custom-check.check-mayotte { background-color: var(--m-zone-mayotte); }
+    html[data-theme="modern"] .custom-check.check-corse { background-color: var(--m-zone-corse); }
+
+    /* ---------- Grille des mois ---------- */
+
+    html[data-theme="modern"] .calendar-grid {
+        gap: 10px;
+        padding: 14px 18px;
+        background-color: transparent;
+    }
+
+    html[data-theme="modern"] .month-column {
+        background-color: var(--m-glass-2);
+        border: 1px solid var(--m-month-rim);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--m-month-shadow);
+    }
+
+    html[data-theme="modern"] .month-header {
+        padding: 9px 4px;
+        background: var(--m-glass-3);
+        border-bottom: 1px solid var(--m-hairline);
+        color: var(--m-muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.11em;
+    }
+
+    /* ---------- Lignes de jours ---------- */
+
+    html[data-theme="modern"] .day-row {
+        min-height: 23px;
+        padding-right: 5px;
+        background-color: transparent;
+        border-bottom: 1px solid var(--m-hairline);
+        font-size: 0.775rem;
+        font-variant-numeric: tabular-nums;
+    }
+
+    html[data-theme="modern"] .vacation-slots {
+        padding-left: 3px;
+        gap: 1px;
+    }
+
+    html[data-theme="modern"] .vacation-slot {
+        width: 5px;
+    }
+
+    html[data-theme="modern"] .vacation-slot.vac-Guadeloupe { background-color: var(--m-zone-guadeloupe); }
+    html[data-theme="modern"] .vacation-slot.vac-Reunion { background-color: var(--m-zone-reunion); }
+    html[data-theme="modern"] .vacation-slot.vac-Mayotte { background-color: var(--m-zone-mayotte); }
+    html[data-theme="modern"] .vacation-slot.vac-Corse { background-color: var(--m-zone-corse); }
+
+    html[data-theme="modern"] .day-num {
+        width: 20px;
+        padding-right: 5px;
+        padding-left: 4px;
+    }
+
+    html[data-theme="modern"] .day-letter {
+        color: var(--m-faint);
+        font-weight: 600;
+    }
+
+    html[data-theme="modern"] .day-saint {
+        padding-left: 4px;
+        color: var(--m-muted);
+        font-size: 0.75rem;
+    }
+
+    html[data-theme="modern"] .week-num {
+        width: 20px;
+        color: var(--m-faint);
+        font-size: 0.68rem;
+        font-weight: 700;
+    }
+
+    html[data-theme="modern"] .day-row.saturday,
+    html[data-theme="modern"] .day-row.sunday {
+        background-color: var(--m-row-alt);
+    }
+
+    html[data-theme="modern"] .day-row.saturday .day-letter,
+    html[data-theme="modern"] .day-row.sunday .day-letter {
+        color: var(--m-muted);
+    }
+
+    html[data-theme="modern"] .day-row.sunday .week-num {
+        color: var(--m-faint);
+    }
+
+    html[data-theme="modern"] .day-row.holiday {
+        background-color: var(--m-hol-bg);
+        color: var(--m-hol-fg);
+    }
+
+    html[data-theme="modern"] .day-row.holiday .day-saint {
+        color: var(--m-hol-fg);
+        font-size: 0.7rem;
+        letter-spacing: 0.02em;
+    }
+
+    html[data-theme="modern"] .day-row.today {
+        background-color: color-mix(in oklab, var(--m-accent) 15%, transparent) !important;
+        color: var(--m-text) !important;
+    }
+
+    html[data-theme="modern"] .day-row.today .day-num {
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        padding: 0;
+        margin-left: 3px;
+        margin-right: 5px;
+        border-radius: 999px;
+        background: var(--m-accent);
+        color: var(--m-on-accent);
+        text-align: center;
+        font-size: 0.7rem;
+    }
+
+    html[data-theme="modern"] .day-row.today .day-saint {
+        color: var(--m-text);
+        font-weight: 600;
+    }
+
+    html[data-theme="modern"] .day-row.today .day-letter,
+    html[data-theme="modern"] .day-row.today .week-num {
+        color: var(--m-text);
+    }
+
+    html[data-theme="modern"] .day-row.empty {
+        background-color: var(--m-row-empty);
+        border-bottom-color: transparent;
+    }
+
+    /* ---------- Tooltips ---------- */
+
+    @media (prefers-color-scheme: dark) {
+        html[data-theme="modern"] .filter-item[data-tooltip]:hover::before {
+            background: #05070d;
+            border: 1px solid var(--m-border);
+        }
+    }
+
+    /* ---------- Pied de page ---------- */
+
+    html[data-theme="modern"] .cookie-notice {
+        padding: 12px 18px;
+        background-color: transparent;
+        border-top: 1px solid var(--m-hairline);
+        color: var(--m-muted);
+        font-size: 0.78rem;
+    }
+
+    html[data-theme="modern"] .cookie-text-container {
+        color: var(--m-muted);
+    }
+
+    html[data-theme="modern"] .cookie-notice .btn-info,
+    html[data-theme="modern"] .btn-info {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border-radius: 999px;
+        border: 1px solid var(--m-border);
+        background: var(--m-chip-on);
+        color: var(--m-muted);
+    }
+
+    html[data-theme="modern"] .btn-info:hover {
+        background: var(--m-accent);
+        color: var(--m-on-accent);
+        border-color: transparent;
+    }
+
+    /* ---------- Modale d'informations ---------- */
+
+    html[data-theme="modern"] .modal-content,
+    html[data-theme="modern"] .modal-container {
+        background: var(--m-glass);
+        backdrop-filter: blur(22px) saturate(150%);
+        -webkit-backdrop-filter: blur(22px) saturate(150%);
+        border: 1px solid var(--m-rim);
+        border-radius: 16px;
+        color: var(--m-text);
+        box-shadow: var(--m-card-shadow);
+    }
+
+    html[data-theme="modern"] .modal-header,
+    html[data-theme="modern"] .modal-footer {
+        background-color: transparent;
+        border-color: var(--m-hairline);
+    }
+
+    html[data-theme="modern"] .modal-header h2,
+    html[data-theme="modern"] .info-section h3 {
+        color: var(--m-text);
+    }
+
+    html[data-theme="modern"] .modal-body,
+    html[data-theme="modern"] .info-section p {
+        color: var(--m-muted);
+    }
+
+    html[data-theme="modern"] .modal-close,
+    html[data-theme="modern"] .btn-close {
+        color: var(--m-faint);
+    }
+
+    html[data-theme="modern"] .info-section a {
+        color: var(--m-accent);
+    }
+
+    html[data-theme="modern"] .btn-modal-action,
+    html[data-theme="modern"] .btn-primary {
+        background: var(--m-accent);
+        color: var(--m-on-accent);
+        border-radius: 999px;
+        padding: 8px 18px;
+    }
+
+    html[data-theme="modern"] .btn-modal-action:hover,
+    html[data-theme="modern"] .btn-primary:hover {
+        background: color-mix(in oklab, var(--m-accent) 80%, #000);
+    }
+}
