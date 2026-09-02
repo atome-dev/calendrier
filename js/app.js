@@ -85,6 +85,35 @@ function saveActiveZones() {
     setCookie('calendar_active_zones', JSON.stringify(state.activeZones));
 }
 
+// --- Mode d'affichage (classique / moderne) ---
+
+const THEME_KEY = 'calendar_theme';
+
+function applyTheme(theme) {
+    if (theme === 'modern') {
+        document.documentElement.dataset.theme = 'modern';
+    } else {
+        delete document.documentElement.dataset.theme;
+    }
+
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+        const isOn = btn.dataset.themeValue === theme;
+        btn.classList.toggle('is-on', isOn);
+        btn.setAttribute('aria-pressed', String(isOn));
+    });
+}
+
+function setupThemeSwitch() {
+    applyTheme(getCookie(THEME_KEY) === 'modern' ? 'modern' : 'classic');
+
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            applyTheme(btn.dataset.themeValue);
+            setCookie(THEME_KEY, btn.dataset.themeValue);
+        });
+    });
+}
+
 // --- Calcul des Jours Fériés Français (Mobiles et Fixes) ---
 
 function getFrenchHolidays(year) {
@@ -391,6 +420,7 @@ document.addEventListener('keydown', (e) => {
 
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', async () => {
+    setupThemeSwitch();
     loadSavedZones();
     await loadVacationsData();
     setupEventListeners();
