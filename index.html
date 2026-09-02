@@ -27,8 +27,8 @@
 
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/popup.css">
   <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/popup.css">
 
   <!-- Applique le mode mémorisé avant le premier rendu, pour éviter un flash du thème classique.
        ponytail: lit localStorage seul (même valeur que le cookie écrit par setCookie) ;
@@ -243,43 +243,43 @@
     </p>
     -->
   </section>
+</div>
 
-  <!-- ================= MODALE INFORMATIONS ================= -->
-  <div id="info-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 id="modal-title">À propos de ce calendrier</h2>
-        <button type="button" class="modal-close" id="btn-close-info" aria-label="Fermer la boîte de dialogue">&times;</button>
+<!-- ================= MODALE INFORMATIONS ================= -->
+<div id="info-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modal-title">À propos de ce calendrier</h2>
+      <button type="button" class="modal-close" id="btn-close-info" aria-label="Fermer la boîte de dialogue">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-section">
+        <h3>👨‍💻 Auteur & Licence</h3>
+        <p>Développé par <strong>Nicolas Chauvet, Atome Dev</strong>.</p>
+        <p>
+          Ce projet est libre et <strong>Open Source</strong> sous licence
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a>.
+        </p>
       </div>
-      <div class="modal-body">
-        <div class="info-section">
-          <h3>👨‍💻 Auteur & Licence</h3>
-          <p>Développé par <strong>Nicolas Chauvet, Atome Dev</strong>.</p>
-          <p>
-            Ce projet est libre et <strong>Open Source</strong> sous licence
-            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a>.
-          </p>
-        </div>
 
-        <div class="info-section">
-          <h3>🐙 Code source & Dépôt GitHub</h3>
-          <p>Le code source complet est disponible publiquement sur GitHub :</p>
-          <p>
-            👉 <a href="https://github.com/atome-dev/calendrier" target="_blank" rel="noopener noreferrer" class="github-link">github.com/atome-dev/calendrier</a>
-          </p>
-        </div>
+      <div class="info-section">
+        <h3>🐙 Code source & Dépôt GitHub</h3>
+        <p>Le code source complet est disponible publiquement sur GitHub :</p>
+        <p>
+          👉 <a href="https://github.com/atome-dev/calendrier" target="_blank" rel="noopener noreferrer" class="github-link">github.com/atome-dev/calendrier</a>
+        </p>
+      </div>
 
-        <div class="info-section">
-          <h3>🏛️ Sources des données officielles</h3>
-          <p>
-            Les dates officielles du calendrier scolaire et des jours fériés proviennent du portail :
-            <a href="https://www.service-public.gouv.fr" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>.
-          </p>
-        </div>
+      <div class="info-section">
+        <h3>🏛️ Sources des données officielles</h3>
+        <p>
+          Les dates officielles du calendrier scolaire et des jours fériés proviennent du portail :
+          <a href="https://www.service-public.gouv.fr" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>.
+        </p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-modal-action" id="btn-close-info-footer">Fermer</button>
-      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn-modal-action" id="btn-close-info-footer">Fermer</button>
     </div>
   </div>
 </div>

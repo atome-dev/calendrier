@@ -528,7 +528,7 @@
     }
 
     /* ---------- Modale d'informations ---------- */
-
+    /*
     html[data-theme="modern"] .modal-content,
     html[data-theme="modern"] .modal-container {
         background: var(--m-glass);
@@ -577,4 +577,5 @@
     html[data-theme="modern"] .btn-primary:hover {
         background: color-mix(in oklab, var(--m-accent) 80%, #000);
     }
+    */
 }
