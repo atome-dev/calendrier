@@ -68,7 +68,7 @@ body {
 }
 
 .nav-arrow {
-    background: linear-gradient(to bottom, #ffffff, #cbd5e1);
+    background: linear-gradient(to bottom, #ffffff, #eef2f7);
     border: 1px solid #64748b;
     border-radius: 4px;
     color: #2563eb;
@@ -81,7 +81,7 @@ body {
 }
 
 .nav-arrow:hover {
-    background: linear-gradient(to bottom, #eff6ff, #93c5fd);
+    background: linear-gradient(to bottom, #eff6ff, #bfdbfe);
     color: #1d4ed8;
 }
 
@@ -309,14 +309,11 @@ body {
 .day-row.sunday {
     background-color: #edf2f7;
 }
-.day-row.sunday .week-num {
-    color: #ffffff;
-}
 
 /* Jours fériés */
 .day-row.holiday {
     background-color: #ffb3ba;
-    color: #b71c1c;
+    color: #8a1210;
     font-weight: 700;
 }
 .day-row.holiday .day-saint {

@@ -191,6 +191,21 @@ function isDateInVacation(dateStr, zone) {
 // --- Rendu du Calendrier ---
 async function chargerVacances() {
 }
+
+function afficherMessageErreur(message) {
+    let banner = document.getElementById('error-banner');
+    if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'error-banner';
+        banner.setAttribute('role', 'alert');
+        banner.style.cssText = 'background:#fdecea;color:#611a15;border:1px solid #f5c6cb;padding:0.75rem 1rem;margin:0.5rem auto;max-width:1200px;border-radius:4px;text-align:center;';
+        const grid = document.getElementById('calendarGrid');
+        grid.parentNode.insertBefore(banner, grid);
+    }
+    banner.textContent = message;
+    banner.style.display = 'block';
+}
+
 async function loadVacationsData() {
     try {
         // 1. Tentative d'appel à l'API avec un timeout court (ex: 5 secondes)
